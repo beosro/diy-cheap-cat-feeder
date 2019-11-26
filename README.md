@@ -1,12 +1,9 @@
 # DIY Multi-Sensor Cat Feeder - Using ESPHome, Home Assistant, and Node Red - README WORK IN PROGRESS!
 This catfeeder features quite a lot of tech! Besides its main funtion of a feeder itself, it also has:<br>
 An ultrasonic sensor to tell us when the feeder is low^.<br>
-A DHT11^^ to tell us temperature and humidity.<br>
-An HC-SR505^^^ for motion detection.<br>
 And ESPHome to tie it into your Home Automation system!<br>
 
 # Footnotes:
-* (^)The feeder sends an HTML5 Notify alert to my phone, for HTML5 Notifications, see https://www.home-assistant.io/components/html5/ <br>
 * (^^)A DHT11 sensor isn't as accurate as the DHT22, however, the DHT11 is cheaper. I purchased 5 of them at once to sweeten the deal. <br>
 * (^^^)The HC-SR505 I got also in bulk as I thought they'd work pretty well. They do work well for this application, but they cannot be close to your ESP8266 device, else it will throw false positives. I have mine about 8 inches from my ESP8266 device and the flase positives are nought.
 
