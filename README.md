@@ -4,10 +4,15 @@ An ultrasonic sensor to tell us when the feeder is low^.<br>
 And ESPHome to tie it into your Home Automation system!<br>
 And it is really cheap!
 
-# Footnotes:
+# Fuctions:
+* Feeding the cat by manual operation or automated by HA.
+* Measure remaining food by ultrasonic
+* Notify via Alexa TTS and Telegram about remaining food
+* Whatever you can imagine with Home Assistant!
+
 
 Thanks for checking this out! Here is what my prototype cat feeder looks like:
-<a href="https://imgur.com/hxLt5IY"><img src="https://i.imgur.com/hxLt5IYh.jpg" title="source: imgur.com" /></a>
+<a href="https://imgur.com/LjEK2e0"><img src="https://imgur.com/LjEK2e0.jpg" title="source: imgur.com" /></a>
 
 # Here's what you need for hardware:
 -  1x NodeMCU v3 ESP8266 (I use an Lolin NodeMCU, but any NodeMCU or WeMos D1/ D1 Mini will work) https://ebay.us/EqwFiP ~5€
@@ -21,11 +26,18 @@ Thanks for checking this out! Here is what my prototype cat feeder looks like:
 
 Around 35€ if you a have a spare charger at home. Even cheaper if you get bulk sensors and Lolins or WeMos from Bangood or Aliexpress. The most expensive item is the Dispenser and usually they arren't very well made... But if we got the mechanics and automations, a cilinder and a D shape rotary axis is really easy to make in 3d ;)
 
+# Currently working on::
+* Script to rotate at input_number.servo_control (speed) during input_number.servo_time (seconds) the stop. Due to few resources about continuous rotors in EspHome
+* Automation based in time (Easy part ;))
+* Last time executed sensor
+
 # Todo List:
 * Some scale or sensor to detect the bowl placed below, to stop the automation if not or if it full.
 * Some 3d printing:
   * Lolin case: https://www.thingiverse.com/thing:2850128
   * Servo mount: https://www.thingiverse.com/thing:3269637
+* Automate my excel list my food providers to automatically show the cheapest one and trigger it by a commmand on Telegram/HA.
+
 # Building it!
 Sorry, I had no pictures of the build process, but here's what I can give you:
 * Compile the code inside EspHome and download the binary to install it with EspHome Flasher.
