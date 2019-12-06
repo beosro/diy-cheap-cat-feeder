@@ -12,7 +12,7 @@ And it is really cheap!
 
 
 Thanks for checking this out! Here is what my prototype cat feeder looks like: <br>
-HA:
+HA: <br>
 <a href="https://imgur.com/LjEK2e0"><img src="https://imgur.com/LjEK2e0.jpg" title="source: imgur.com" /></a> <br>
 Hardware:<br>
 <a href="https://imgur.com/kGHy0tY"><img src="https://imgur.com/kGHy0tY.jpg" title="source: imgur.com" /></a><br>
