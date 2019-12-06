@@ -11,7 +11,7 @@ And it is really cheap!
 * Whatever you can imagine with Home Assistant!
 
 
-Thanks for checking this out! Here is what my prototype cat feeder looks like:
+Thanks for checking this out! Here is what my prototype cat feeder looks like: <br>
 HA:
 <a href="https://imgur.com/LjEK2e0"><img src="https://imgur.com/LjEK2e0.jpg" title="source: imgur.com" /></a> <br>
 Hardware:<br>
