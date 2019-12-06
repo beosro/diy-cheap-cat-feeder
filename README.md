@@ -29,17 +29,22 @@ Hardware:<br>
 
 Around 35€ if you a have a spare charger at home. Even cheaper if you get bulk sensors and Lolins or WeMos from Bangood or Aliexpress. The most expensive item is the Dispenser and usually they arren't very well made... But if we got the mechanics and automations, a cilinder and a D shape rotary axis is really easy to make in 3d ;)
 
-# Currently working on::
-* Script to rotate at input_number.servo_control (speed) during input_number.servo_time (seconds) the stop. Due to few resources about continuous rotors in EspHome
+# Here's what you need for hardware:
+-  <a href=https://www.home-assistant.io/>Home Assistant</a>
+-  <a href=https://www.home-assistant.io/>EspHome</a>
+-  <a href=https://github.com/custom-components/alexa_media_player> Alexa Media Player </a>
+-  <a href=https://www.home-assistant.io/integrations/telegram/> Telegram notify in Home Assistant </a>
+
+# Currently working on:
 * Automation based in time (Easy part ;))
 * Last time executed sensor
 
 # Todo List:
-* Some scale or sensor to detect the bowl placed below, to stop the automation if not or if it full.
+* Some scale or sensor to detect the bowl placed below, to stop the automation if not or if it is full.
 * Some 3d printing:
   * Lolin case: https://www.thingiverse.com/thing:2850128
   * Servo mount: https://www.thingiverse.com/thing:3269637
-* Automate my excel list my food providers to automatically show the cheapest one and trigger it by a commmand on Telegram/HA.
+* Automate my excel list with my food providers to automatically show the cheapest one and trigger it by a commmand on Telegram/HA.
 
 # Building it!
 * Compile the code inside EspHome and download the binary to install it with EspHome Flasher.
