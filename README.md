@@ -13,9 +13,9 @@ And it is really cheap!
 
 Thanks for checking this out! Here is what my prototype cat feeder looks like:
 HA:
-<a href="https://imgur.com/LjEK2e0"><img src="https://imgur.com/LjEK2e0.jpg" title="source: imgur.com" /></a>
-Hardware:
-<a href="https://imgur.com/kGHy0tY"><img src="https://imgur.com/kGHy0tY.jpg" title="source: imgur.com" /></a>
+<a href="https://imgur.com/LjEK2e0"><img src="https://imgur.com/LjEK2e0.jpg" title="source: imgur.com" /></a> <br>
+Hardware:<br>
+<a href="https://imgur.com/kGHy0tY"><img src="https://imgur.com/kGHy0tY.jpg" title="source: imgur.com" /></a><br>
 
 # Here's what you need for hardware:
 -  1x NodeMCU v3 ESP8266 (I use an Lolin NodeMCU, but any NodeMCU or WeMos D1/ D1 Mini will work) https://ebay.us/EqwFiP ~5€
@@ -44,11 +44,11 @@ Around 35€ if you a have a spare charger at home. Even cheaper if you get bulk
 # Building it!
 * Compile the code inside EspHome and download the binary to install it with EspHome Flasher.
 * Fit the ultrasonic sensor below the lid with screws, some hot glue, whatever fits for you.
-* With a drill or dremel, drill a passthrough to connect the ultrasonic sensor to the Lolin. I use four pins, to make it detachable.
-<a href="https://imgur.com/5NPo7WZ"><img src="https://imgur.com/5NPo7WZ.jpg" title="source: imgur.com" /></a>
-* Screw the servo motor to the rotary handle.
-<a href="https://imgur.com/yUB9Slp"><img src="https://imgur.com/yUB9Slp.jpg" title="source: imgur.com" /></a>
+* With a drill or dremel, drill a passthrough to connect the ultrasonic sensor to the Lolin. I use four pins, to make it detachable.<br>
+<a href="https://imgur.com/5NPo7WZ"><img src="https://imgur.com/5NPo7WZ.jpg" title="source: imgur.com" /></a><br>
+* Screw the servo motor to the rotary handle.<br>
+<a href="https://imgur.com/yUB9Slp"><img src="https://imgur.com/yUB9Slp.jpg" title="source: imgur.com" /></a><br>
 * Connect the pins as set below.
 * Connect your MicroUSB 
-* Create the package for Home Assistant and restart the server.
+* Create the package for Home Assistant and restart the server.<br>
 <a href="https://imgur.com/FNGvack"><img src="https://i.imgur.com/FNGvack.png" title="source: imgur.com" /></a>
