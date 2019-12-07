@@ -9,6 +9,7 @@ And it is really cheap!
 * Measure remaining food by ultrasonic
 * Notify via Alexa TTS and Telegram about remaining food
 * Whatever you can imagine with Home Assistant!
+* Can run from a USB Powerbank, so it can run on the go or as a security feature as UPS
 
 
 Thanks for checking this out! Here is what my prototype cat feeder looks like: <br>
@@ -38,6 +39,7 @@ Around 35€ if you a have a spare charger at home. Even cheaper if you get bulk
 # Currently working on:
 * Automation based in time (Easy part ;))
 * Last time executed sensor
+* Clean ultrasonic values (no negative values, no over 100% values)
 
 # Todo List:
 * Some scale or sensor to detect the bowl placed below, to stop the automation if not or if it is full.
