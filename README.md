@@ -16,6 +16,7 @@ Thanks for checking this out! Here is what my prototype cat feeder looks like: <
 HA: <br>
 <a href="https://imgur.com/Kehp6hD"><img src="https://imgur.com/Kehp6hD.jpg" title="source: imgur.com" /></a> <br>
 The cards named "test" is under a tab named development, so I can control and calibrate all the values from here, while I only show the "pretty" card in the main screen. <br>
+<br>
 Hardware:<br>
 <a href="https://imgur.com/kGHy0tY"><img src="https://imgur.com/kGHy0tY.jpg" title="source: imgur.com" /></a><br>
 
@@ -29,7 +30,7 @@ Hardware:<br>
 -  A USB-A to Micro USB cable.
 -  Dremel or drill.
 
-Around 35€ if you a have a spare charger at home. Even cheaper if you get bulk sensors and Lolins or WeMos from Bangood or Aliexpress. The most expensive item is the Dispenser and usually they arren't very well made... But if we got the mechanics and automations, a cilinder and a D shape rotary axis is really easy to make in 3d ;)
+Around 35€ if you a have a spare charger at home. Even cheaper if you get bulk sensors and Lolins or WeMos from Bangood or Aliexpress. The most expensive item is the Dispenser and usually they aren't very well made... But if we got the mechanics and automations, a cilinder and a D shape rotary axis is really easy to make in 3d ;)
 
 # Here's what you need for software:
 -  <a href=https://www.home-assistant.io/>Home Assistant</a>
@@ -50,7 +51,7 @@ Around 35€ if you a have a spare charger at home. Even cheaper if you get bulk
 
 # Thanks of the amazing work by:
 * <a href=https://adonno.com/salt-level-sensor/>Adonno salt meter</a> 
-* <a href=https://github.com/lance36/catFeeder/blob/master/catFeeder.ino>Lance36 catFeeder, my original inspiration</a> 
+* <a href=https://github.com/lance36/catFeeder>Lance36 catFeeder, my original inspiration</a> 
 * <a href=https://github.com/335iguy/diy-multisensor-cat-feeder>335iguy, with a very similar approach</a> 
 * The amazing Community of Home Assistant!!:
   * Forum: https://community.home-assistant.io/
