@@ -1,0 +1,129 @@
+# "Cali" is the name of my cat, you can use your own ;)
+
+input_number:
+  servo_control:
+    name: Servo Control # % of speed. + clockwise, - reverse
+    initial: 0 #you should update the initial value or you will lost your config with each reboot!!!!
+    min: -100
+    max: 100
+    step: 1
+    mode: slider
+  servo_time:
+    name: Tiempo giro #seconds of rotation
+    initial: 5 #you should update the initial value or you will lost your config with each reboot!!!!
+    min: 0
+    max: 20
+    step: 1
+    mode: slider
+
+input_datetime:
+  everyday_food:
+    name: Comidas cali
+    has_date: false
+    has_time: true
+  last_time_food:
+    name: Último servicio
+    has_date: true
+    has_time: true
+
+script:        
+  '57658975357': # unique script id
+    alias: Alimentar al bicho
+    sequence:
+      - service: esphome.califood_control_servo
+        data_template:
+          level: "{{ states('input_number.servo_control') }}"
+      - service: input_datetime.set_datetime
+        data_template:
+          entity_id: input_datetime.last_time_food
+          time: '{{ (as_timestamp(now()) | timestamp_custom("%H:%M:%S", true)) }}'
+          date: '{{ (as_timestamp(now()) | timestamp_custom("%Y-%m-%d", true)) }}'
+      - delay: 
+          # Supports milliseconds, seconds, minutes, hours, days
+          seconds: "{{ states('input_number.servo_time')|int(0) }}"          
+      - service: esphome.califood_control_servo
+        data_template:
+          level: 0.0
+     
+sensor:
+  - platform: time_date
+    display_options:
+      - 'time'
+  - platform: template
+    sensors:
+      last_food:
+        friendly_name: 'Última comida'
+        entity_id: sensor.time
+        device_class: timestamp
+        value_template: '{{ as_timestamp(states.esphome.califood_control_servo.last_changed) }}'
+      
+#notification
+
+automation:
+  - id: '1575416595489' #low food telegram & alexa
+    alias: Notificación pienso bajo
+    description: ''
+    trigger:
+    - below: 20
+      platform: numeric_state
+      entity_id: sensor.porcentaje_pienso
+      value_template: "{{states('sensor.porcentaje_pienso') | float}}"
+      for:
+        hours: 0
+        minutes: 15
+        seconds: 0
+    condition: []
+    action:
+    - data:
+        disable_notification: false
+        disable_web_page_preview: true
+        inline_keyboard: '["Comprar más:/button1, Rellenar:/button2"]'
+        keyboard:
+        - /Comprar, /Rellenar
+        message: Le queda poco pienso a Cali
+        parse_mode: html
+        target: !secret tel_id
+        title: Poco pienso Cali
+      service: telegram_bot.send_message
+    - data:
+        data:
+          type: tts
+        message: "Le queda poco pienso a Cali"
+        target:
+        - group.alexa
+      service: notify.alexa_media
+
+  - id: '1575416595492' #everyday feeding
+    alias: Comida diaria
+    description: ''
+    trigger:
+      platform: template
+      value_template: "{{ states('sensor.time') == (state_attr('input_datetime.everyday_food', 'timestamp') | int | timestamp_custom('%H:%M', True)) }}"
+    action:
+      service: script.turn_on
+      entity_id: script.57658975357
+
+
+  - id: '1575416964920' #feeder disconnected
+    alias: Califooder desconectado
+    description: ''
+    trigger:
+      entity_id: binary_sensor.califooder
+      for:
+        hours: 0
+        minutes: 1
+        seconds: 0
+      platform: state
+      from: 'on'
+      to: 'off'
+    condition: []
+    action:
+    - data:
+        disable_notification: false
+        disable_web_page_preview: true
+        message: Se ha desconectado el comedero
+        parse_mode: html
+        target: !secret tel_id
+        title: Califooder desconectado
+      service: telegram_bot.send_message
+

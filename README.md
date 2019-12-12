@@ -1,6 +1,6 @@
 # DIY Home Assistant Cat Feeder - Using ESPHome and Home Assistant. WORK IN PROGRESS!
 This catfeeder features quite a lot of tech! Besides its main funtion of a feeder itself, it also has:<br>
-An ultrasonic sensor to tell us when the feeder is low^.<br>
+An ultrasonic sensor to tell us when the feeder is low.<br>
 And ESPHome to tie it into your Home Automation system!<br>
 And it is really cheap!
 
@@ -14,7 +14,8 @@ And it is really cheap!
 
 Thanks for checking this out! Here is what my prototype cat feeder looks like: <br>
 HA: <br>
-<a href="https://imgur.com/LjEK2e0"><img src="https://imgur.com/LjEK2e0.jpg" title="source: imgur.com" /></a> <br>
+<a href="https://imgur.com/Kehp6hD"><img src="https://imgur.com/Kehp6hD.jpg" title="source: imgur.com" /></a> <br>
+The cards named "test" is under a tab named development, so I can control and calibrate all the values from here, while I only show the "pretty" card in the main screen. <br>
 Hardware:<br>
 <a href="https://imgur.com/kGHy0tY"><img src="https://imgur.com/kGHy0tY.jpg" title="source: imgur.com" /></a><br>
 
@@ -30,22 +31,31 @@ Hardware:<br>
 
 Around 35€ if you a have a spare charger at home. Even cheaper if you get bulk sensors and Lolins or WeMos from Bangood or Aliexpress. The most expensive item is the Dispenser and usually they arren't very well made... But if we got the mechanics and automations, a cilinder and a D shape rotary axis is really easy to make in 3d ;)
 
-# Here's what you need for hardware:
+# Here's what you need for software:
 -  <a href=https://www.home-assistant.io/>Home Assistant</a>
 -  <a href=https://www.home-assistant.io/>EspHome</a>
 -  <a href=https://github.com/custom-components/alexa_media_player> Alexa Media Player </a>
 -  <a href=https://www.home-assistant.io/integrations/telegram/> Telegram notify in Home Assistant </a>
 
 # Currently working on:
-* Automation based in time (Easy part ;))
-* Last time executed sensor
 * Clean ultrasonic values (no negative values, no over 100% values)
+* Automate my excel list with my food providers to automatically show the cheapest one and trigger it by a commmand on Telegram/HA. Also scrapping prizes?
 
 # Todo List:
 * Some scale or sensor to detect the bowl placed below, to stop the automation if not or if it is full.
 * Some 3d printing:
   * Lolin case: https://www.thingiverse.com/thing:2850128
   * Servo mount: https://www.thingiverse.com/thing:3269637
+
+
+# Thanks of the amazing work by:
+* <a href=https://adonno.com/salt-level-sensor/>Adonno salt meter</a> 
+* <a href=https://github.com/lance36/catFeeder/blob/master/catFeeder.ino>Lance36 catFeeder, my original inspiration</a> 
+* <a href=https://github.com/335iguy/diy-multisensor-cat-feeder>335iguy, with a very similar approach</a> 
+* The amazing Community of Home Assistant!!:
+  * Forum: https://community.home-assistant.io/
+  * Discord: https://discordapp.com/invite/c5DvZ4e
+  * Reddit: https://www.reddit.com/r/homeassistant/
 * Automate my excel list with my food providers to automatically show the cheapest one and trigger it by a commmand on Telegram/HA.
 
 # Building it!
@@ -58,4 +68,6 @@ Around 35€ if you a have a spare charger at home. Even cheaper if you get bulk
 * Connect the pins as set below.
 * Connect your MicroUSB 
 * Create the package for Home Assistant and restart the server.<br>
-<a href="https://imgur.com/FNGvack"><img src="https://i.imgur.com/FNGvack.png" title="source: imgur.com" /></a>
+<a href="https://imgur.com/FNGvack"><img src="https://i.imgur.com/FNGvack.png" title="source: imgur.com" /></a> <br>
+* Test your values with the test-card and hardcode the correct values as initial number in each input_number.<br>
+* Define your automation<br>

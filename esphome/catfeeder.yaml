@@ -1,0 +1,105 @@
+esphome:
+  name: califood
+  platform: ESP8266
+  board: nodemcuv2
+
+wifi:
+  ssid: !secret ssid
+  password: !secret wifipass
+  power_save_mode: none
+  manual_ip:
+    # Set this to the IP of the ESP
+    static_ip: 192.168.0.119
+    # Set this to the IP address of the router. Often ends with .1
+    gateway: 192.168.0.1
+    # The subnet of the network. 255.255.255.0 works for most home networks.
+    subnet: 255.255.255.0
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Califood Fallback Hotspot"
+    password: "sGSHWJM5WNvQ"
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  password: !secret hapass
+  services:
+    - service: control_servo
+      variables:
+        level: float
+      then:
+        - servo.write:
+            id: califood
+            level: !lambda 'return level / 100.0;'
+
+ota:
+  password: !secret hapass
+
+output:
+  - platform: esp8266_pwm
+    id: califood_output
+    pin: D1
+    frequency: 50 Hz
+    
+servo:
+  - id: califood
+    output: califood_output
+    
+# Refer projects
+# https://adonno.com/salt-level-sensor/
+# https://github.com/lance36/catFeeder/blob/master/catFeeder.ino
+# https://github.com/335iguy/diy-multisensor-cat-feeder
+binary_sensor:
+  - platform: status
+    name: "Califooder"
+    
+sensor:
+  - platform: uptime
+    name: "Califood System Uptime"
+
+  - platform: wifi_signal
+    name: "Califood WiFi Signal"
+    update_interval: 360s
+    
+  - platform: ultrasonic
+    trigger_pin: D8
+    echo_pin: D7
+    name: "Porcentaje pienso %"
+    update_interval: 180s
+    filters:
+    - filter_out: nan
+    # Calculates in %
+    # Replace 0.23 by the height of your container. From the sensor to the bottom.
+    # I used this website to know how I should multiply my values :https://www.skillsyouneed.com/num/percent-change.html 
+    - lambda: return (0.23-x)*(100/0.23);
+    accuracy_decimals: 0
+    unit_of_measurement: "%"
+    
+  - platform: ultrasonic
+    trigger_pin: D8
+    echo_pin: D7
+    name: "Cat Food Remaining "
+    update_interval: 180s
+    filters:
+    - filter_out: nan
+    # Calculates in cm
+    # Replace 0.23 by the height of your container. From the sensor to the bottom.
+    # I used this website to know how I should multiply my values :https://www.skillsyouneed.com/num/percent-change.html 
+    - lambda: return (0.23-x)*100;
+    accuracy_decimals: 2
+    unit_of_measurement: "cm"
+
+time:
+  - platform: homeassistant
+    ## Set your timezone
+    timezone: Europe/Madrid
+    id: homeassistant_time
+
+switch:
+  - platform: restart
+    name: "Restart CatFeeder"
